@@ -5,17 +5,11 @@
 @section('main')
   <div class="container">
 
-
-
-
     <!-- Delete Message -->
     @include('includes.allerts')
 
     <div class="d-flex justify-content-end">
-
       <a class="btn btn-primary mt-3" href="{{ route('students.create') }}">Crea</a>
-
-
     </div>
     <table class="table">
       <thead>
