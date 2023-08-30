@@ -6,7 +6,13 @@
 @section('main')
   <div class="container">
     @if ($errors->any())
-      <h1>ciao</h1>
+      <div class="alert alert-danger mt-3">
+        <ul>
+          @foreach ($errors->all() as $e)
+            <li>{{ $e }}</li>
+          @endforeach
+        </ul>
+      </div>
     @endif
     <div class="row">
       <form action="{{ route('students.update', $student) }}" method="POST">

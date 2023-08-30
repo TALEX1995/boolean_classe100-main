@@ -75,6 +75,11 @@ class StudentController extends Controller
     {
         //$data = $request->all();
 
+        $request->validate([
+            'name' => 'string|max:255|required',
+            'surname' => 'string|max:255|required',
+        ]);
+
         $student->name = $request->name;
         $student->surname = $request->surname;
         $student->save();
