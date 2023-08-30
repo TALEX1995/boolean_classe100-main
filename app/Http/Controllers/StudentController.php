@@ -32,6 +32,11 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
+        $new_student = new Student();
+        $new_student->name = $request->name;
+        $new_student->surname = $request->surname;
+        $new_student->save();
+        return to_route("students.index");
     }
 
     /**
