@@ -55,7 +55,10 @@ class StudentController extends Controller
     public function update(Request $request, Student $student)
 
     {
-        dd($request);
+        $data = $request->all();
+        $student->name = $request->name;
+        $student->surname = $request->surname;
+        $student->save();
         return to_route('students.index');
     }
 
