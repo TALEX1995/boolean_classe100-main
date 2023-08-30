@@ -3,6 +3,7 @@
 @section('title', 'lista Studenti')
 
 @section('main')
+
   <div class="container">
 
     <!-- Delete Message -->
@@ -10,6 +11,7 @@
 
     <div class="d-flex justify-content-end">
       <a class="btn btn-primary mt-3" href="{{ route('students.create') }}">Crea</a>
+
     </div>
     <table class="table">
       <thead>
@@ -28,7 +30,9 @@
 
               <a class="btn btn-warning" href="{{ route('students.edit', $student) }}">Modifica</a>
 
-              <form action="{{ route('students.destroy', $student) }}" method="POST" id="delete-form">
+              <form action="{{ route('students.destroy', $student) }}" method="POST" class="delete-form"
+                data-bs-toggle="modal" data-bs-target="#deleteModal" data-name="{{ $student->name }}">
+
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-danger">Elimina</button>
@@ -40,4 +44,24 @@
     </table>
   </div>
 
+
+  <!-- Modale -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Eliminazione Studente</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Sei sicuro di voler modificare lo studente?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non eliminare</button>
+          <button type="button" class="btn btn-danger" id="deleteButton">Elimina</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  @vite('resources/js/delete-confirm.js')
 @endsection

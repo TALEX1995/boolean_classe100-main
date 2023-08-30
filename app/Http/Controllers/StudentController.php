@@ -11,11 +11,15 @@ class StudentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $students = Student::all();
-
-        return view('students.index', compact('students'));
+        $term = $request->search_term;
+        if ($term) {
+            $students = Student::where("name", "LIKE", "%$term%")->get();
+        } else {
+            $students = Student::all();
+        }
+        return view('students.index', compact('students', "term"));
     }
 
     /**
