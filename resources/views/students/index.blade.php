@@ -32,7 +32,7 @@
             <td>{{ $student->surname }}</td>
             <td class="d-flex align-items-center justify-content-end gap-2">
               <a class="btn btn-warning" href="#">Modifica</a>
-              <form action="{{ route('students.destroy', $student)}}" method="POST" id="delete-form">
+              <form action="{{ route('students.destroy', $student)}}" method="POST" class="delete-form">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-danger">Elimina</button>
@@ -43,6 +43,6 @@
       </tbody>
     </table>
   </div>
-
+  @vite('resources/js/delete-confirm.js')
 @endsection
 
