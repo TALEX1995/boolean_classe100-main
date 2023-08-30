@@ -42,6 +42,13 @@ class StudentController extends Controller
         $request->validate([
             'name' => 'string|max:255|required',
             'surname' => 'string|max:255|required',
+        ], [
+            'name.max' => 'Il nome deve essere inferiore a 255 caratteri',
+            'name.string' => 'Il nome non è valido',
+            'name.required' => 'Il nome è obbligatorio',
+            'surname.max' => 'Il cognome deve essere inferiore a 255 caratteri',
+            'surname.string' => 'Il cognome non è valido',
+            'surname.required' => 'Il cognome è obbligatorio',
         ]);
 
         $new_student = new Student();
@@ -78,6 +85,13 @@ class StudentController extends Controller
         $request->validate([
             'name' => 'string|max:255|required',
             'surname' => 'string|max:255|required',
+        ], [
+            'name.max' => 'Il nome deve essere inferiore a 255 caratteri',
+            'name.string' => 'Il nome non è valido',
+            'name.required' => 'Il nome è obbligatorio',
+            'surname.max' => 'Il cognome deve essere inferiore a 255 caratteri',
+            'surname.string' => 'Il cognome non è valido',
+            'surname.required' => 'Il cognome è obbligatorio',
         ]);
 
         $student->name = $request->name;

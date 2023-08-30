@@ -2,5 +2,7 @@
 
 
 @section('main')
-  <h2><a href="{{ route('students.index') }}">Studenti</a></h2>
+  <div class="container">
+    <h1 class="text-center mt-3">Homepage</h1>
+  </div>
 @endsection
