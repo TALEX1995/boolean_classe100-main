@@ -22,7 +22,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        //View Form
+        return view("students.create",);
     }
 
     /**
