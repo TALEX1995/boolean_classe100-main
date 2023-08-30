@@ -6,14 +6,10 @@
 
   <div class="container">
 
-
-
-
     <!-- Delete Message -->
     @include('includes.allerts')
 
     <div class="d-flex justify-content-end">
-
       <a class="btn btn-primary mt-3" href="{{ route('students.create') }}">Crea</a>
 
     </div>
@@ -36,6 +32,7 @@
 
               <form action="{{ route('students.destroy', $student) }}" method="POST" class="delete-form"
                 data-bs-toggle="modal" data-bs-target="#deleteModal" data-name="{{ $student->name }}">
+
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-danger">Elimina</button>

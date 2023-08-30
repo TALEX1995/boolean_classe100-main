@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class StudentController extends Controller
 {
@@ -26,6 +27,7 @@ class StudentController extends Controller
      */
     public function create()
     {
+
         //View Form
         return view("students.create",);
     }
@@ -36,6 +38,12 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
+
+        $request->validate([
+            'name' => 'string|max:255|required',
+            'surname' => 'string|max:255|required',
+        ]);
+
         $new_student = new Student();
         $new_student->name = $request->name;
         $new_student->surname = $request->surname;

@@ -6,7 +6,9 @@ deleteForm.forEach(form => {
     form.addEventListener('submit', e => {
         e.preventDefault();
         const name = form.dataset.name;
-        // const confirmed = confirm(`Sei sicuro di voler eliminare ${name}?`);
+
+    
+
         modalBody.innerText = `Sei sicuro di voler eliminare ${name}` 
 
         deleteButton.addEventListener("click", function(){
