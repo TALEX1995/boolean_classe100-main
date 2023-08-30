@@ -15,13 +15,14 @@
                 <div class="col-6">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nome Studente</label>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="mb-3">
                         <label for="surname" class="form-label">Cognome Studente</label>
-                        <input type="text" class="form-control" id="surname" name="surname">
+                        <input type="text" class="form-control" id="surname" name="surname"
+                            value="{{ old('surname') }}">
                     </div>
                 </div>
                 <div class="col-12">
