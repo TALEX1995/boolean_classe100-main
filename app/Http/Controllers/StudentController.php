@@ -64,6 +64,6 @@ class StudentController extends Controller
     {
         Student::destroy($id);
 
-        return to_route('students.index');
+        return to_route('students.index')->with('delete', 'success');
     }
 }

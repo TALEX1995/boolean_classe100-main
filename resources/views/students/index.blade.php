@@ -4,7 +4,16 @@
 
 @section('main')
   <div class="container">
+
+    <!-- Delete Message -->
+    @if(session('delete'))
+      <div class="alert alert-success">
+        Eliminazione effettuata con successo
+      </div>
+    @endif
+
     <div class="d-flex justify-content-end">
+
       <a class="btn btn-primary mt-3" href="{{ route('students.create') }}">Crea</a>
 
     </div>
