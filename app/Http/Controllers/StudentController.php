@@ -55,7 +55,8 @@ class StudentController extends Controller
     public function update(Request $request, Student $student)
 
     {
-        $data = $request->all();
+        //$data = $request->all();
+
         $student->name = $request->name;
         $student->surname = $request->surname;
         $student->save();
