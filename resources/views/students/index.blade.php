@@ -7,7 +7,7 @@
 
     <!-- Delete Message -->
     @if(session('delete'))
-      <div class="alert alert-success">
+      <div class="alert alert-success mt-3">
         Eliminazione effettuata con successo
       </div>
     @endif
