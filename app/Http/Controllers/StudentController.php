@@ -22,7 +22,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        //View Form
+        return view("students.create",);
     }
 
     /**
@@ -31,6 +32,11 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
+        $new_student = new Student();
+        $new_student->name = $request->name;
+        $new_student->surname = $request->surname;
+        $new_student->save();
+        return to_route("students.index")->with('type', 'create')->with('message', 'Studente creato con successo')->with('alert', 'success');
     }
 
     /**
@@ -66,8 +72,10 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Student $student)
+    public function destroy(string $id)
     {
-        //
+        Student::destroy($id);
+
+        return to_route('students.index')->with('type', 'delete')->with('message', 'Studente cancellato con successo')->with('alert', 'success');
     }
 }

@@ -4,8 +4,17 @@
 
 @section('main')
     <div class="container">
+
+
+
+
+        <!-- Delete Message -->
+        @include('includes.allerts')
+
         <div class="d-flex justify-content-end">
+
             <a class="btn btn-primary mt-3" href="{{ route('students.create') }}">Crea</a>
+
 
         </div>
         <table class="table">
@@ -22,8 +31,10 @@
                         <th>{{ $student->name }}</th>
                         <td>{{ $student->surname }}</td>
                         <td class="d-flex align-items-center justify-content-end gap-2">
+
                             <a class="btn btn-warning" href="{{ route('students.edit', $student) }}">Modifica</a>
-                            <form action="" method="POST">
+                      
+                            <form action="{{ route('students.destroy', $student) }}" method="POST" id="delete-form">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger">Elimina</button>
@@ -34,4 +45,5 @@
             </tbody>
         </table>
     </div>
+
 @endsection
