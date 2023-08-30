@@ -36,7 +36,7 @@ class StudentController extends Controller
         $new_student->name = $request->name;
         $new_student->surname = $request->surname;
         $new_student->save();
-        return to_route("students.index");
+        return to_route("students.index")->with('type', 'create')->with('message', 'Studente creato con successo')->with('alert', 'success');
     }
 
     /**
@@ -70,6 +70,6 @@ class StudentController extends Controller
     {
         Student::destroy($id);
 
-        return to_route('students.index')->with('delete', 'success');
+        return to_route('students.index')->with('type', 'delete')->with('message', 'Studente cancellato con successo')->with('alert', 'success');
     }
 }
