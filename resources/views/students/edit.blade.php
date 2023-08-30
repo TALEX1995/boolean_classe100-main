@@ -5,7 +5,9 @@
 
 @section('main')
   <div class="container">
-    @include('includes.allerts')
+    @if ($errors->any())
+      <h1>ciao</h1>
+    @endif
     <div class="row">
       <form action="{{ route('students.update', $student) }}" method="POST">
         @method('PUT')

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class StudentController extends Controller
 {
@@ -35,8 +36,8 @@ class StudentController extends Controller
         //
 
         $request->validate([
-            'name' => 'string|max:255',
-            'surname' => 'string|max:255',
+            'name' => 'string|max:255|required',
+            'surname' => 'string|max:255|required',
         ]);
 
         $new_student = new Student();
