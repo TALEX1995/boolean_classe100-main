@@ -56,15 +56,21 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('students.edit', compact('student'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Student $student)
+
     {
-        //
+        //$data = $request->all();
+
+        $student->name = $request->name;
+        $student->surname = $request->surname;
+        $student->save();
+        return to_route('students.index');
     }
 
     /**
