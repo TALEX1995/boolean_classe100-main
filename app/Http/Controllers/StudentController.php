@@ -36,7 +36,7 @@ class StudentController extends Controller
         $new_student->name = $request->name;
         $new_student->surname = $request->surname;
         $new_student->save();
-        return to_route("students.index");
+        return to_route("students.index")->with('type', 'create')->with('message', 'Studente creato con successo')->with('alert', 'success');
     }
 
     /**
@@ -52,15 +52,21 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('students.edit', compact('student'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Student $student)
+
     {
-        //
+        //$data = $request->all();
+
+        $student->name = $request->name;
+        $student->surname = $request->surname;
+        $student->save();
+        return to_route('students.index');
     }
 
     /**
@@ -70,6 +76,6 @@ class StudentController extends Controller
     {
         Student::destroy($id);
 
-        return to_route('students.index')->with('delete', 'success');
+        return to_route('students.index')->with('type', 'delete')->with('message', 'Studente cancellato con successo')->with('alert', 'success');
     }
 }
